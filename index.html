@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kyangwali Secondary School (Kyangwali S.S.S) — Official Website. Quality O-Level & A-Level education in Kyangwali Refugee Settlement, Uganda. Government-aided, ranked top in the district.">
+    <title>Kyangwali Secondary School | Official Website</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
+        :root {
+            --primary-green: #166534;
+        }
+        
+        .tail-container { font-family: 'Inter', sans-serif; }
+        .heading-font { font-family: 'Playfair Display', sans-serif; }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(22, 101, 52, 0.08), rgba(22, 101, 52, 0.18)),   /* MUCH LIGHTER overlay — Schoolpic.png now clearly visible */
+                        url('Images/Schoolpic.png') center/cover no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.09);
+            backdrop-filter: blur(20px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d97706;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after { width: 100%; }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -10px rgb(22 101 52 / 0.25);
+        }
+        
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, #166534, #d97706);
+            z-index: 50;
+        }
+        
+        .marquee {
+            background: linear-gradient(90deg, #166534, #854d0e);
+            color: white;
+            font-weight: 500;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        /* Modern hero text enhancements */
+        .hero-text {
+            font-size: 2.25rem;
+            line-height: 1.05;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.65);
+        }
+        @media (min-width: 640px) {
+            .hero-text { font-size: 3.75rem; }
+        }
+        @media (min-width: 768px) {
+            .hero-text { font-size: 4.75rem; }
+        }
+        
+        /* Premium button style */
+        .premium-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .premium-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 15px 30px -10px rgb(22 101 52 / 0.4);
+        }
+
+        /* Right-side slide mobile menu (no full-screen cover) */
+        #mobileMenu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        #mobileMenu.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="tail-container bg-zinc-950 text-white overflow-x-hidden">
+
+    <!-- SCROLL PROGRESS -->
+    <div id="progressBar" class="scroll-progress w-0"></div>
+
+    <!-- NAVBAR - SOLID + SHADOW FOR MAXIMUM VISIBILITY (exactly as you drew) -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950 border-b border-white/10 shadow-2xl">   <!-- SOLID black + strong shadow so it always pops -->
+        <div class="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">     <!-- py-3 = short height that perfectly fits links -->
+            
+            <!-- Logo -->
+            <div class="flex items-center gap-x-3">
+                <div class="w-9 h-9 bg-white text-emerald-900 flex items-center justify-center text-2xl font-bold rounded-2xl shadow-inner">KSS</div>
+                <div>
+                    <span class="heading-font text-xl font-bold tracking-tighter">Kyangwali</span>
+                    <span class="block text-[10px] tracking-[1px] text-emerald-400 -mt-0.5">SECONDARY SCHOOL</span>
+                </div>
+            </div>
+
+            <!-- Desktop Menu - exact order from your sketch -->
+            <div class="hidden md:flex items-center gap-x-7 text-sm font-medium mx-auto">
+                <a href="about.html" class="nav-link">About</a>
+                <a href="Home.html" class="nav-link text-emerald-400 font-medium">Home</a>
+                <a href="academics.html" class="nav-link">Academics</a>
+                <a href="partners.html" class="nav-link">Partners</a>
+                <a href="Joseph.html" class="nav-link">The Developer</a>
+                <a href="Support.html" class="nav-link">Support</a>
+            </div>
+
+            <div class="flex items-center gap-x-3">
+                <!-- Theme Toggle -->
+                <button id="themeToggle" 
+                        class="h-9 w-9 flex items-center justify-center rounded-2xl border border-white/20 hover:border-emerald-400 transition-all">
+                    <i class="fa-solid fa-moon text-lg"></i>
+                </button>
+                
+                <a href="Support.html" 
+                   class="premium-btn px-6 py-2.5 bg-white text-emerald-900 font-semibold rounded-3xl text-xs flex items-center gap-x-2">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                    Support Us
+                </a>
+
+                <!-- Mobile Hamburger -->
+                <button id="mobileMenuBtn" class="md:hidden text-3xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu - RIGHT-SIDE SLIDE (no longer covers whole screen) -->
+        <div id="mobileMenu" class="fixed top-0 right-0 w-72 h-full bg-zinc-950 border-l border-white/10 z-50 pt-20 px-6">
+            <div class="flex flex-col gap-y-6 text-base font-medium">
+                <a href="about.html" onclick="toggleMobileMenu()" class="py-4 border-b border-white/10">About</a>
+                <a href="Home.html" onclick="toggleMobileMenu()" class="py-4 border-b border-white/10 text-emerald-400 font-medium">Home</a>
+                <a href="academics.html" onclick="toggleMobileMenu()" class="py-4 border-b border-white/10">Academics</a>
+                <a href="partners.html" onclick="toggleMobileMenu()" class="py-4 border-b border-white/10">Partners</a>
+                <a href="Joseph.html" onclick="toggleMobileMenu()" class="py-4 border-b border-white/10">The Developer</a>
+                <a href="Support.html" onclick="toggleMobileMenu()" class="py-4">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO - now with much clearer background image -->
+    <section class="hero-bg min-h-screen flex items-center relative pt-16">
+        <div class="max-w-5xl mx-auto px-5 text-center">
+            <div class="max-w-3xl mx-auto">
+                <div class="inline-flex items-center gap-x-3 bg-white/10 backdrop-blur-md px-5 py-1.5 rounded-3xl text-xs font-medium tracking-widest mb-6">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    KYANGWALI REFUGEE SETTLEMENT • UGANDA
+                </div>
+                
+                <h1 class="heading-font hero-text font-bold tracking-tighter mb-6 text-white">
+                    EDUCATION IS AN<br>INVESTMENT
+                </h1>
+                
+                <p class="text-base md:text-xl text-white/90 max-w-2xl mx-auto">
+                    Kyangwali Secondary School — Government-aided excellence in O-Level &amp; A-Level education. 
+                    Ranked 5th in the district (2026). Transforming lives since 2022.
+                </p>
+                
+                <div class="mt-10 flex flex-wrap justify-center gap-4">
+                    <a href="academics.html" 
+                       class="premium-btn px-8 py-4 bg-white text-emerald-950 font-semibold rounded-3xl text-base shadow-2xl">
+                        Explore Academics
+                    </a>
+                    <a href="Support.html" 
+                       class="premium-btn px-8 py-4 border-2 border-white text-white font-semibold rounded-3xl text-base hover:bg-white/10 transition-all">
+                        Support Our Students
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- School Badge -->
+        <div id="school-badge" 
+             class="absolute hidden lg:block bottom-12 right-12 glass border border-white/20 p-5 rounded-3xl text-center shadow-2xl">
+            <div class="text-5xl mb-2">🏆</div>
+            <div class="text-xs font-medium text-white">District Rank 2026</div>
+            <div class="text-3xl font-bold text-amber-300">5th</div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 flex flex-col items-center text-white/70 text-xs tracking-widest">
+            SCROLL TO DISCOVER <i class="fa-solid fa-chevron-down mt-1 animate-bounce"></i>
+        </div>
+    </section>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="marquee py-3 text-sm">
+        <div class="max-w-7xl mx-auto px-5 flex items-center gap-x-3">
+            <span class="bg-white/20 px-4 py-1 text-xs font-bold rounded-3xl">LIVE</span>
+            <marquee>📢 ADMISSIONS FOR 2026 INTAKE ARE NOW OPEN — SECURE YOUR FUTURE TODAY!</marquee>
+        </div>
+    </div>
+
+    <!-- KEY FACTS / CARDS -->
+    <section class="py-16 md:py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card-hover glass border border-white/10 rounded-3xl p-7 text-center">
+                    <div class="text-4xl mb-5">🏛️</div>
+                    <h3 class="text-xl font-semibold mb-3">Government Aided</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        A recognized government-supported secondary school offering quality education to all learners.
+                    </p>
+                </div>
+                
+                <div class="card-hover glass border border-white/10 rounded-3xl p-7 text-center">
+                    <div class="text-4xl mb-5">📚</div>
+                    <h3 class="text-xl font-semibold mb-3">O-Level &amp; A-Level</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Providing both Arts and Science combinations with excellent academic performance.
+                    </p>
+                </div>
+                
+                <div class="card-hover glass border border-white/10 rounded-3xl p-7 text-center">
+                    <div class="text-4xl mb-5">🏅</div>
+                    <h3 class="text-xl font-semibold mb-3">Ranked 5th in District (2026)</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        A proud achievement reflecting hard work, discipline, and academic excellence.
+                    </p>
+                </div>
+                
+                <div class="card-hover glass border border-white/10 rounded-3xl p-7 text-center">
+                    <div class="text-4xl mb-5">🚀</div>
+                    <h3 class="text-xl font-semibold mb-3">Innovation &amp; Projects</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Engaging students in practical skills like baking, piggery, ICT, entrepreneurship and more.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER - FULL QUICK LINKS FROM YOUR SKETCH -->
+    <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-5 grid md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <div class="flex items-center gap-x-3 text-white mb-4 justify-center md:justify-start">
+                    <div class="w-8 h-8 bg-white text-emerald-900 flex items-center justify-center text-2xl font-bold rounded-2xl">K</div>
+                    <span class="heading-font text-2xl font-bold">Kyangwali S.S.S</span>
+                </div>
+                <p class="text-white/60 text-sm">
+                    Kyangwali Refugee Settlement<br>
+                    Kikuube District, Uganda
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold text-white mb-4">QUICK LINKS</h4>
+                <div class="grid grid-cols-2 gap-y-2 text-sm">
+                    <a href="about.html" class="hover:text-amber-300 transition-colors">About</a>
+                    <a href="Home.html" class="hover:text-amber-300 transition-colors">Home</a>
+                    <a href="academics.html" class="hover:text-amber-300 transition-colors">Academics</a>
+                    <a href="partners.html" class="hover:text-amber-300 transition-colors">Partners</a>
+                    <a href="Joseph.html" class="hover:text-amber-300 transition-colors">The Developer</a>
+                    <a href="Support.html" class="hover:text-amber-300 transition-colors">Support</a>
+                </div>
+            </div>
+            
+            <div class="text-white/60 text-sm">
+                © 2026 Kyangwali Secondary School<br>
+                All Rights Reserved<br><br>
+                <span class="text-emerald-400">Official Website</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        function initTheme() {
+            const toggle = document.getElementById('themeToggle');
+            toggle.addEventListener('click', () => {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    toggle.innerHTML = `<i class="fa-solid fa-moon text-lg"></i>`;
+                } else {
+                    document.documentElement.classList.add('dark');
+                    toggle.innerHTML = `<i class="fa-solid fa-sun text-lg"></i>`;
+                }
+            });
+        }
+
+        // Scroll Progress
+        function initScrollProgress() {
+            const bar = document.getElementById('progressBar');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const progress = (scrollTop / docHeight) * 100;
+                bar.style.width = `${progress}%`;
+            });
+        }
+
+        // Mobile Menu - RIGHT SIDE SLIDE (clean & modern, no full-screen cover)
+        function initMobileMenu() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const menu = document.getElementById('mobileMenu');
+            
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('active');
+                btn.innerHTML = menu.classList.contains('active') 
+                    ? '<i class="fa-solid fa-xmark"></i>' 
+                    : '<i class="fa-solid fa-bars"></i>';
+            });
+        }
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.remove('active');
+            document.getElementById('mobileMenuBtn').innerHTML = '<i class="fa-solid fa-bars"></i>';
+        }
+
+        // Initialize everything
+        function initialize() {
+            initTheme();
+            initScrollProgress();
+            initMobileMenu();
+        }
+
+        window.onload = initialize;
+    </script>
+</body>
+</html>
