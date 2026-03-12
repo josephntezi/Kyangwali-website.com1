@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Kyangwali Secondary School — Our story, vision, leadership, values and journey in Kyangwali Refugee Settlement, Uganda.">
+    <title>About Us | Kyangwali Secondary School</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
+        .tail-container { font-family: 'Inter', sans-serif; }
+        .heading-font { font-family: 'Playfair Display', sans-serif; }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(22, 101, 52, 0.72), rgba(22, 101, 52, 0.82)),
+                        url('https://images.unsplash.com/photo-1509062522246-3755977927d7') center/cover no-repeat fixed;
+        }
+        
+        .glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); }
+        
+        .nav-link { position: relative; transition: color 0.3s ease; }
+        .nav-link:after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px;
+            background: #d97706; transition: width 0.3s ease;
+        }
+        .nav-link:hover:after { width: 100%; }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+        }
+        
+        .scroll-progress {
+            position: fixed; top: 0; left: 0; height: 4px;
+            background: linear-gradient(to right, #166534, #d97706);
+            z-index: 50;
+        }
+        
+        #mobileMenu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        #mobileMenu.active {
+            transform: translateX(0);
+        }
+
+        /* Attractive Quick Links */
+        .quick-link {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .quick-link:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px -5px rgb(16 185 129 / 0.3);
+        }
+        .special-link {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            color: white;
+            font-weight: 600;
+        }
+        .special-link:hover {
+            background: linear-gradient(135deg, #059669, #10b981);
+            transform: translateY(-4px) scale(1.08) !important;
+            box-shadow: 0 15px 30px -8px rgb(16 185 129 / 0.5);
+        }
+    </style>
+</head>
+<body class="tail-container bg-zinc-950 text-white overflow-x-hidden">
+
+    <!-- SCROLL PROGRESS -->
+    <div id="progressBar" class="scroll-progress w-0"></div>
+
+    <!-- NAVBAR - SOLID, SHORT & PERFECTLY CENTERED (exactly as in your sketch) -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950 border-b border-white/10 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-x-3 flex-shrink-0">
+                <div class="w-9 h-9 bg-white text-emerald-900 flex items-center justify-center text-2xl font-bold rounded-2xl">KSS</div>
+                <div>
+                    <span class="heading-font text-lg font-bold tracking-tighter">Kyangwali</span>
+                    <span class="block text-[9px] tracking-[1px] text-emerald-400 -mt-0.5">SECONDARY SCHOOL</span>
+                </div>
+            </div>
+
+            <!-- Centered Desktop Nav -->
+            <div class="hidden md:flex items-center gap-x-6 text-xs font-medium mx-auto">
+                <a href="about.html" class="nav-link text-emerald-400 font-medium">About</a>
+                <a href="Home.html" class="nav-link">Home</a>
+                <a href="academics.html" class="nav-link">Academics</a>
+                <a href="partners.html" class="nav-link">Partners</a>
+                <a href="Joseph.html" class="nav-link">The Developer</a>
+                <a href="Support.html" class="nav-link">Support</a>
+            </div>
+
+            <div class="flex items-center gap-x-3 flex-shrink-0">
+                <button id="themeToggle" class="h-9 w-9 flex items-center justify-center rounded-2xl border border-white/20 hover:border-emerald-400 transition-all">
+                    <i class="fa-solid fa-moon text-lg"></i>
+                </button>
+                
+                <a href="Support.html" 
+                   class="px-5 py-2 bg-white text-emerald-900 font-semibold rounded-3xl text-xs flex items-center gap-x-2 hover:bg-amber-300 transition-all">
+                    <i class="fa-solid fa-hand-holding-heart"></i> Support Us
+                </a>
+
+                <button id="mobileMenuBtn" class="md:hidden text-3xl p-2">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="fixed top-0 right-0 w-72 h-full bg-zinc-950 border-l border-white/10 z-50 pt-20 px-6">
+            <div class="flex flex-col gap-y-5 text-sm font-medium">
+                <a href="about.html" onclick="toggleMobileMenu()" class="py-4 border-b border-white/10 text-emerald-400 font-medium">About</a>
+                <a href="Home.html" onclick="toggleMobileMenu()" class="py-4 border-b border-white/10">Home</a>
+                <a href="academics.html" onclick="toggleMobileMenu()" class="py-4 border-b border-white/10">Academics</a>
+                <a href="partners.html" onclick="toggleMobileMenu()" class="py-4 border-b border-white/10">Partners</a>
+                <a href="Joseph.html" onclick="toggleMobileMenu()" class="py-4 border-b border-white/10">The Developer</a>
+                <a href="Support.html" onclick="toggleMobileMenu()" class="py-4">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FLOATING BACK BUTTON -->
+    <button onclick="history.back()" 
+            class="fixed top-24 left-6 z-50 flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-white/30 text-white px-5 py-3 rounded-3xl text-sm font-medium shadow-2xl transition-all">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back</span>
+    </button>
+
+    <!-- HERO -->
+    <section class="hero-bg min-h-[65vh] flex items-center relative pt-16">
+        <div class="max-w-5xl mx-auto px-5 text-center">
+            <div class="max-w-3xl mx-auto">
+                <div class="inline-flex items-center gap-x-3 bg-white/10 backdrop-blur-md px-5 py-1.5 rounded-3xl text-xs font-medium tracking-widest mb-6">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    KYANGWALI REFUGEE SETTLEMENT • UGANDA
+                </div>
+                <h1 class="heading-font text-4xl md:text-5xl font-bold tracking-tighter leading-none mb-6">
+                    ABOUT KYANGWALI<br>SECONDARY SCHOOL
+                </h1>
+                <p class="text-base md:text-lg text-white/90 max-w-2xl mx-auto">
+                    A beacon of hope, excellence, and transformation in the heart of Kyangwali Refugee Settlement.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR STORY -->
+    <section class="py-16 bg-zinc-900">
+        <div class="max-w-3xl mx-auto px-5 text-center">
+            <h2 class="heading-font text-4xl mb-6">Our Story</h2>
+            <p class="text-white/80 leading-relaxed">
+                Kyangwali Secondary School was founded to provide quality education to students in Western Uganda. 
+                Over the years, the school has grown into a respected center for academic excellence, discipline, and innovation.
+            </p>
+        </div>
+    </section>
+
+    <!-- VISION MISSION MOTTO -->
+    <section class="py-16 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-5">
+            <h2 class="heading-font text-4xl text-center mb-10">Vision • Mission • Motto</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass border border-white/10 rounded-3xl p-8 text-center card-hover">
+                    <h3 class="text-xl font-semibold mb-4 text-emerald-400">Vision</h3>
+                    <p class="text-white/80 text-sm">To become a leading institution of excellence in academics and character formation.</p>
+                </div>
+                <div class="glass border border-white/10 rounded-3xl p-8 text-center card-hover">
+                    <h3 class="text-xl font-semibold mb-4 text-emerald-400">Mission</h3>
+                    <p class="text-white/80 text-sm">To provide holistic education that empowers students with knowledge, discipline, and leadership skills.</p>
+                </div>
+                <div class="glass border border-white/10 rounded-3xl p-8 text-center card-hover">
+                    <h3 class="text-xl font-semibold mb-4 text-emerald-400">Motto</h3>
+                    <p class="text-2xl font-bold text-amber-300">"EDUCATION IS AN INVESTMENT."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE VALUES -->
+    <section class="py-16 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-5">
+            <h2 class="heading-font text-4xl text-center mb-10">Core Values</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="glass border border-white/10 rounded-3xl p-6 text-center card-hover">Integrity</div>
+                <div class="glass border border-white/10 rounded-3xl p-6 text-center card-hover">Discipline</div>
+                <div class="glass border border-white/10 rounded-3xl p-6 text-center card-hover">Excellence</div>
+                <div class="glass border border-white/10 rounded-3xl p-6 text-center card-hover">Innovation</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="py-16 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-5">
+            <h2 class="heading-font text-4xl text-center mb-10">Meet Our Leadership</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="glass border border-white/10 rounded-3xl overflow-hidden card-hover">
+                    <img src="Images/HM.png" class="w-full h-64 object-cover" alt="Head Teacher">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Head Teacher</h3>
+                        <p class="text-white/70 text-sm">Dedicated to academic excellence and student success.</p>
+                    </div>
+                </div>
+                <div class="glass border border-white/10 rounded-3xl overflow-hidden card-hover">
+                    <img src="Images/Deputy.png" class="w-full h-64 object-cover" alt="Deputy Head Teacher">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Deputy Head Teacher</h3>
+                        <p class="text-white/70 text-sm">Committed to discipline and academic growth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="py-16 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-5">
+            <h2 class="heading-font text-4xl text-center mb-10">Achievements &amp; Awards</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass border border-white/10 rounded-3xl p-8 text-center card-hover">Top UCE Performance Awards</div>
+                <div class="glass border border-white/10 rounded-3xl p-8 text-center card-hover">Regional Sports Champions</div>
+                <div class="glass border border-white/10 rounded-3xl p-8 text-center card-hover">Science Innovation Fair Winners</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FACILITIES -->
+    <section class="py-16 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-5">
+            <h2 class="heading-font text-4xl text-center mb-10">Our Facilities</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="glass border border-white/10 rounded-3xl p-6 text-center card-hover text-sm">Modern Classrooms</div>
+                <div class="glass border border-white/10 rounded-3xl p-6 text-center card-hover text-sm">Science Laboratories</div>
+                <div class="glass border border-white/10 rounded-3xl p-6 text-center card-hover text-sm">ICT Laboratory</div>
+                <div class="glass border border-white/10 rounded-3xl p-6 text-center card-hover text-sm">Library &amp; Study Areas</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR JOURNEY -->
+    <section class="py-16 bg-zinc-900">
+        <div class="max-w-4xl mx-auto px-5">
+            <h2 class="heading-font text-4xl text-center mb-10">Our Journey</h2>
+            <div class="space-y-6">
+                <div class="timeline-item glass border-l-4 border-emerald-400 pl-6 py-5 rounded-r-3xl">1998: School Established</div>
+                <div class="timeline-item glass border-l-4 border-emerald-400 pl-6 py-5 rounded-r-3xl">2015: Science Labs Built</div>
+                <div class="timeline-item glass border-l-4 border-emerald-400 pl-6 py-5 rounded-r-3xl">2023: ICT Introduced</div>
+                <div class="timeline-item glass border-l-4 border-emerald-400 pl-6 py-5 rounded-r-3xl">2026: Camera installation &amp; Modernization</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER WITH ATTRACTIVE QUICK LINKS -->
+    <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-5 grid md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <div class="flex items-center gap-x-3 text-white mb-4 justify-center md:justify-start">
+                    <div class="w-8 h-8 bg-white text-emerald-900 flex items-center justify-center text-2xl font-bold rounded-2xl">K</div>
+                    <span class="heading-font text-2xl font-bold">Kyangwali S.S.S</span>
+                </div>
+                <p class="text-white/60 text-sm">Kyangwali Refugee Settlement<br>Kikuube District, Uganda</p>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold text-white mb-6">QUICK LINKS</h4>
+                <div class="grid grid-cols-2 gap-3 text-sm">
+                    <a href="about.html" class="quick-link bg-white/10 hover:bg-white/20 text-white px-5 py-3 rounded-2xl flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-info-circle"></i> About
+                    </a>
+                    <a href="Home.html" class="quick-link bg-white/10 hover:bg-white/20 text-white px-5 py-3 rounded-2xl flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-house"></i> Home
+                    </a>
+                    <a href="academics.html" class="quick-link bg-white/10 hover:bg-white/20 text-white px-5 py-3 rounded-2xl flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-book"></i> Academics
+                    </a>
+                    <a href="partners.html" class="quick-link bg-white/10 hover:bg-white/20 text-white px-5 py-3 rounded-2xl flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-handshake"></i> Partners
+                    </a>
+                    <!-- Special: The Developer -->
+                    <a href="Joseph.html" class="special-link quick-link px-5 py-3 rounded-2xl flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-code"></i> The Developer
+                    </a>
+                    <!-- Special: Support -->
+                    <a href="Support.html" class="special-link quick-link px-5 py-3 rounded-2xl flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-heart"></i> Support
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-white/60 text-sm">
+                Phone: +256 782 167 029<br>
+                © 2026 Kyangwali Secondary School<br>
+                <span class="text-emerald-400">Official Website</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/256782859497" target="_blank" 
+       class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-all">
+        💬
+    </a>
+
+    <script>
+        function initTheme() {
+            const toggle = document.getElementById('themeToggle');
+            toggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                toggle.innerHTML = document.documentElement.classList.contains('dark') 
+                    ? `<i class="fa-solid fa-sun text-lg"></i>` 
+                    : `<i class="fa-solid fa-moon text-lg"></i>`;
+            });
+        }
+
+        function initScrollProgress() {
+            const bar = document.getElementById('progressBar');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const progress = (scrollTop / docHeight) * 100;
+                bar.style.width = `${progress}%`;
+            });
+        }
+
+        function initMobileMenu() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const menu = document.getElementById('mobileMenu');
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('active');
+                btn.innerHTML = menu.classList.contains('active') 
+                    ? '<i class="fa-solid fa-xmark"></i>' 
+                    : '<i class="fa-solid fa-bars"></i>';
+            });
+        }
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.remove('active');
+            document.getElementById('mobileMenuBtn').innerHTML = '<i class="fa-solid fa-bars"></i>';
+        }
+
+        function initialize() {
+            initTheme();
+            initScrollProgress();
+            initMobileMenu();
+        }
+
+        window.onload = initialize;
+    </script>
+</body>
+</html>
